@@ -1,0 +1,27 @@
+#..........WORKING.................
+torch --index-url https://download.pytorch.org/whl/cpu
+torchvision --index-url https://download.pytorch.org/whl/cpu
+torchaudio --index-url https://download.pytorch.org/whl/cpu
+
+git+https://github.com/openai/whisper.git
+
+pydub         # Audio processing (supports MP3, WAV, etc.)
+ffmpeg-python # Required for handling audio formats
+# $env:PATH += ";C:\Techoptima\ffmpeg-7.1-essentials_build\ffmpeg-7.1-essentials_build\bin"  -- run this command in terminal
+numpy         # Mathematical operations on audio data
+scipy         # Signal processing
+sounddevice   # Capture audio from microphone
+
+transformers    # Pre-trained NLP models (e.g., GPT, BERT for grammar correction)
+torch          # Required for deep learning models
+#sentencepiece  # Tokenization for NLP models
+nltk           # Basic NLP tasks (stopword removal, tokenization)
+
+loguru       # Better logging
+python-dotenv # Load environment variables from .env file
+
+
+
+
+
+
