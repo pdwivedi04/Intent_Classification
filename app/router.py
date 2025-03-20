@@ -1,14 +1,18 @@
 from loguru import logger
+from app.intent_registry import register_intent
 
+@register_intent("repeat")
 def handle_repeat():
-    return "Fetching the current weather for you... ☁️"
+    print("⏭️ Repeating this question.")
+    
 
+@register_intent("skip")
 def handle_skip():
-    from datetime import datetime
-    return f"The current time is {datetime.now().strftime('%H:%M:%S')} ⏰"
+    print("⏭️ Skipping this question.")
 
+@register_intent("exit")
 def handle_exit():
-    return "Goodbye! Have a great day! 👋"
+    raise ExitIntent  # This will stop execution and break the loop
 
 # Intent-Function Mapping
 INTENT_FUNCTIONS = {
@@ -27,4 +31,11 @@ def route_intent(intent):
     if intent in INTENT_FUNCTIONS:
         return INTENT_FUNCTIONS[intent]()
     
-    return "Sorry, I didn't understand that. Can you repeat? 🤔"
+    return "Thanks, I got your response."
+
+
+class ExitIntent(Exception):
+    """Custom exception to handle exit intent."""
+    pass
+
+
